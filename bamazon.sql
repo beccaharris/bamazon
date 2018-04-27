@@ -21,3 +21,4 @@ INSERT INTO products (product_name, department_name, price, stock_qty)
          ("KATEVO Carry-on Travel Footrest", "Health & Household", 18.99, 250),
          ("Clorox Disinfecting Wipes (3 Pack)", "Health & Household", 14.49, 500),
          ("Philips Sonicare Premium Plaque Control toothbrush heads, HX9044/95, Smart recognition (4 pack)", "Health & Household", 46.99, 45);
+         ("Roll Recovery R8", "Health & Household", 249.99, 1);
