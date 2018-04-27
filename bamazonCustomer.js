@@ -11,11 +11,13 @@ const connection = mysql.createConnection({
 function queryAllProducts() {
   connection.query("SELECT * FROM products", function (err, res) {
     if (err) throw err;
-    console.log(` WELCOME TO BAMAZON!\n ~|~|~|~|~|~|~|~|~|~\nBelow is a list of all of the available products.\n--------------------------------------------------------------------------------------------------`)
+    console.log(`%c WELCOME TO BAMAZON!\n ~|~|~|~|~|~|~|~|~|~
+                  \nBelow is a list of all of the available products.
+                  \n--------------------------------------------------------------------------------------------------`);
     for (let i = 0; i < res.length; i++) {
-      console.log("ID: " + res[i].item_id + " | " + "Product: " + res[i].product_name + " | " + "Price: " + res[i].price);
+      console.log(`ID: ${res[i].item_id} | Product: ${res[i].product_name}  | Price: $${res[i].price}`);
       console.log('--------------------------------------------------------------------------------------------------')
-    }
+    };
     // Will be using this 'valid' variable for multiple validations, so defining outside of inquirer prompt
     let valid;
     inquirer.prompt([
@@ -24,7 +26,7 @@ function queryAllProducts() {
         name: "item_id",
         message: "Please type the ID of the item you would like to purchase",
         validate: function validateID(id) {
-          if (isNaN(id) || id > res.length || id < 0) {
+          if (isNaN(id) || id > res.length || id < 0 || id == "") {
             valid = `ID must be a number between 1 and ${res.length}`
           } else {
             return true
@@ -36,7 +38,7 @@ function queryAllProducts() {
         name: "qty",
         message: "How many would you like to purchase?",
         validate: function validateQTY(qty) {
-          if (isNaN(qty) || qty < 0) {
+          if (isNaN(qty) || qty < 0 || id == "") {
             valid = `Quantity must be a valid number`
           } else {
             return true
@@ -50,7 +52,7 @@ function queryAllProducts() {
       var calcTotal = parseFloat((res[itemToPurch].price) * qtyToPurch).toFixed(2);
 
       if(qtyToPurch <= res[itemToPurch].stock_qty) {
-        console.log(`Congratulations on your purchase! Your total is ${calcTotal}. Your items will maybe arrive...someday.`);
+        console.log(`Congratulations on your purchase! Your total is $${calcTotal}. Your items will maybe arrive...someday.`);
         var updateQty = connection.query(
           "UPDATE products SET ? WHERE ?",
           [
@@ -63,11 +65,11 @@ function queryAllProducts() {
         )
       } else {
         console.log(`Insufficient quantity! We only have ${res[itemToPurch].stock_qty} in stock.`)
-      }
+      };
       repromptUser();
     })
-  });
-}
+  })
+};
 
 function repromptUser() {
   inquirer.prompt([
@@ -84,6 +86,6 @@ function repromptUser() {
       connection.end()
     }
   })
-}
+};
 
 queryAllProducts();
