@@ -176,7 +176,7 @@ function repromptManager() {
     {
       type: "confirm",
       name: "do_something_else",
-      message: "Would you like to do something else?"
+      message: "Would you like to return to the main menu (Y) or exit (n)?"
     }
   ]).then(function(ans) {
     if(ans.do_something_else) {
