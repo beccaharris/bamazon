@@ -24,11 +24,13 @@ npm install inquirer
 * Run ```node bamazonCustomer.js```
 * Navigate through the questions with which you are prompted. 
 * To kill the server, press CTRL-C
+* <a href="https://www.youtube.com/watch?v=M0E9EKoJHtc&feature=youtu.be">DEMO</a>
 
 **bamazonManager.js**
 * Open the app in your integrated terminal or cd into the app folder in your regular terminal
 * Run ```node bamazonManager.js```
 * You'll be prompted with some menu items. Select whichever one you want and work your way through. At the end of whatever selection, you'll have the option to return to the main menu or exit. 
+* <a href="https://www.youtube.com/watch?v=UGvhOXzZFvk&feature=youtu.be">DEMO</a>
 
 ## Built With
 * <a href="https://nodejs.org/en/">Node.js v8.9.4</a>
