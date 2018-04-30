@@ -38,7 +38,7 @@ function queryAllProducts() {
         name: "qty",
         message: "How many would you like to purchase?",
         validate: function validateQTY(qty) {
-          if (isNaN(qty) || qty < 0 || id == "") {
+          if (isNaN(qty) || qty < 0 || qty == "") {
             valid = `Quantity must be a valid number`
           } else {
             return true
