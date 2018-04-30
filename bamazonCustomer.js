@@ -11,7 +11,7 @@ const connection = mysql.createConnection({
 function queryAllProducts() {
   connection.query("SELECT * FROM products", function (err, res) {
     if (err) throw err;
-    console.log(`%c WELCOME TO BAMAZON!\n ~|~|~|~|~|~|~|~|~|~
+    console.log(`  WELCOME TO BAMAZON!\n ~|~|~|~|~|~|~|~|~|~
                   \nBelow is a list of all of the available products.
                   \n--------------------------------------------------------------------------------------------------`);
     for (let i = 0; i < res.length; i++) {
